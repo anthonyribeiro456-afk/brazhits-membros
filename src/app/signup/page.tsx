@@ -62,14 +62,14 @@ export default function SignUpPage() {
   }
 
   return (
-    <Card className="w-full max-w-sm border-0 bg-card/60 backdrop-blur-lg">
-      <CardHeader>
+    <Card className="w-full border-0 bg-card/60 shadow-xl shadow-black/20 backdrop-blur-lg">
+      <CardHeader className="p-8 pb-4">
         <CardTitle className="text-2xl">Sign Up</CardTitle>
         <CardDescription>
           Enter your information to create an account.
         </CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="p-8 pt-0">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
             <FormField

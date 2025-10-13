@@ -59,14 +59,14 @@ export default function ResetPasswordPage() {
   }
 
   return (
-    <Card className="w-full max-w-sm border-0 bg-card/60 backdrop-blur-lg">
-      <CardHeader>
+    <Card className="w-full border-0 bg-card/60 shadow-xl shadow-black/20 backdrop-blur-lg">
+      <CardHeader className="p-8 pb-4">
         <CardTitle className="text-2xl">Reset Password</CardTitle>
         <CardDescription>
           Enter your email to receive a password reset link.
         </CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="p-8 pt-0">
         {isSent ? (
           <div className="text-center text-sm">
             <p>An email has been sent to your address with instructions.</p>

@@ -58,14 +58,14 @@ export default function LoginPage() {
   }
 
   return (
-    <Card className="w-full max-w-sm border-0 bg-card/60 backdrop-blur-lg">
-      <CardHeader>
+    <Card className="w-full border-0 bg-card/60 shadow-xl shadow-black/20 backdrop-blur-lg">
+      <CardHeader className="p-8 pb-4">
         <CardTitle className="text-2xl">Login</CardTitle>
         <CardDescription>
           Enter your email below to login to your account.
         </CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="p-8 pt-0">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
             <FormField
