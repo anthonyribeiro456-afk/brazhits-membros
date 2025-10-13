@@ -21,6 +21,7 @@ import { useToast } from '@/hooks/use-toast';
 import { useState } from 'react';
 import { Loader2 } from 'lucide-react';
 
+// ✅ Validação com Zod
 const formSchema = z.object({
   email: z.string().email({ message: 'E-mail inválido.' }),
   password: z.string().min(1, { message: 'Senha é obrigatória.' }),
@@ -39,6 +40,7 @@ export default function LoginPage() {
     },
   });
 
+  // ✅ Função de login
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsLoading(true);
     try {
@@ -58,62 +60,93 @@ export default function LoginPage() {
   }
 
   return (
-    <Card className="w-full border-border bg-card shadow-lg">
-      <CardHeader className="p-[30px] pb-4">
-        <CardTitle className="text-2xl font-bold text-white">Bem-vindo de volta!</CardTitle>
-        <CardDescription className="text-muted-foreground">
-          Faça login para acessar a VEO3 ACADEMY.
-        </CardDescription>
-      </CardHeader>
-      <CardContent className="p-[30px] pt-0">
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-            <FormField
-              control={form.control}
-              name="email"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="font-semibold text-white">E-mail</FormLabel>
-                  <FormControl>
-                    <Input placeholder="seu@email.com" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="password"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="font-semibold text-white">Senha</FormLabel>
-                  <FormControl>
-                    <Input type="password" placeholder="••••••••" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <Button type="submit" className="w-full text-base font-bold" disabled={isLoading}>
-              {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-              Entrar
-            </Button>
-          </form>
-        </Form>
-        <div className="mt-6 space-y-2 text-center text-sm text-muted-foreground">
-          <p>
-            <Link href="/reset-password" prefetch={false} className="text-primary hover:underline">
-              Esqueceu sua senha?
-            </Link>
-          </p>
-          <p>
-            Não tem uma conta?{' '}
-            <Link href="/signup" prefetch={false} className="text-primary hover:underline">
-              Crie uma agora
-            </Link>
-          </p>
-        </div>
-      </CardContent>
-    </Card>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-background p-4">
+    {/* LOGO */}
+          <img
+            src="/imgs/logo_braz.png"
+            alt="Logo"
+            className="mb-4 w-44 h-auto"
+          />
+
+
+      <Card className="w-full max-w-md border-border bg-card shadow-lg rounded-xl">
+        <CardHeader className="p-[30px] pb-4">
+          <CardTitle className="text-2xl font-bold text-white">Bem-vindo de volta!</CardTitle>
+          <CardDescription className="text-muted-foreground">
+            Faça login para acessar a VEO3 ACADEMY.
+          </CardDescription>
+        </CardHeader>
+
+        <CardContent className="p-[30px] pt-0">
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+              {/* Campo de E-mail */}
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="font-semibold text-white">E-mail</FormLabel>
+                    <FormControl>
+                      <Input
+                        placeholder="seu@email.com"
+                        {...field}
+                        className="bg-background text-white border-border focus:ring-2 focus:ring-primary"
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              {/* Campo de Senha */}
+              <FormField
+                control={form.control}
+                name="password"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="font-semibold text-white">Senha</FormLabel>
+                    <FormControl>
+                      <Input
+                        type="password"
+                        placeholder="••••••••"
+                        {...field}
+                        className="bg-background text-white border-border focus:ring-2 focus:ring-primary"
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              {/* Botão de Login */}
+              <Button
+                type="submit"
+                className="w-full text-base font-bold bg-primary text-primary-foreground hover:opacity-90 transition"
+                disabled={isLoading}
+              >
+                {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                Entrar
+              </Button>
+            </form>
+          </Form>
+
+          {/* Links de ajuda */}
+          <div className="mt-6 space-y-2 text-center text-sm text-muted-foreground">
+            <p>
+              <Link href="/reset-password" prefetch={false} className="text-primary hover:underline">
+                Esqueceu sua senha?
+              </Link>
+            </p>
+            <p>
+              Não tem uma conta?{' '}
+              <Link href="/signup" prefetch={false} className="text-primary hover:underline">
+                Crie uma agora
+              </Link>
+            </p>
+          </div>
+        </CardContent>
+      </Card>
+    </div>
   );
 }
