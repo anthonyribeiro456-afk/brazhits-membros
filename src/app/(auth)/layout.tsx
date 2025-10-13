@@ -8,7 +8,7 @@ export default function AuthLayout({ children }: { children: ReactNode }) {
          <div className="absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_500px_at_50%_200px,#00e4ff33,transparent)]"></div>
       </div>
       
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center justify-center">
           <div className="mb-8 flex flex-col items-center gap-2 text-2xl font-bold text-primary">
             <div className="rounded-full bg-primary/20 p-4">
                 <Film className="h-8 w-8 text-primary" />
