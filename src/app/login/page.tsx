@@ -65,7 +65,7 @@ export default function LoginPage() {
           <img
             src="/imgs/logo_braz.png"
             alt="Logo"
-            className="w-44 h-auto"
+            className="w-44 h-auto mb-4"
           />
 
 
