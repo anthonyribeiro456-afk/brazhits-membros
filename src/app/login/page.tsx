@@ -60,7 +60,7 @@ export default function LoginPage() {
   }
 
   return (
-          <div className="flex flex-col items-center justify-center min-h-screen bg-background pt-16">
+          <div className="flex flex-col items-center justify-center min-h-screen bg-background">
 
           <img
             src="/imgs/logo_braz.png"
