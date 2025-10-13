@@ -69,7 +69,7 @@ export default function LoginPage() {
           />
 
 
-      <Card className="w-full max-w-md border-border bg-card shadow-lg rounded-xl mt-4">
+      <Card className="w-full max-w-md border-border bg-card shadow-lg rounded-xl">
         <CardHeader className="p-[30px] pb-4">
           <CardTitle className="text-2xl font-bold text-white">Bem-vindo de volta!</CardTitle>
           <CardDescription className="text-muted-foreground">
