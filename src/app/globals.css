@@ -6,7 +6,7 @@
   :root {
     --background: 206 100% 8%; /* #001A2A */
     --foreground: 210 40% 98%;
-    --card: 206 50% 12%;
+    --card: 206 100% 12%; /* #00273D */
     --card-foreground: 210 40% 98%;
     --popover: 206 100% 8%;
     --popover-foreground: 210 40% 98%;
@@ -15,21 +15,21 @@
     --secondary: 217 33% 17%;
     --secondary-foreground: 210 40% 98%;
     --muted: 217 33% 17%;
-    --muted-foreground: 215 20% 65%;
+    --muted-foreground: 208 8% 65%; /* #A0AAB5 */
     --accent: 217 33% 20%;
     --accent-foreground: 210 40% 98%;
     --destructive: 0 63% 31%;
     --destructive-foreground: 210 40% 98%;
-    --border: 217 33% 25%;
-    --input: 217 33% 15%;
+    --border: 206 50% 20%;
+    --input: 206 50% 15%;
     --ring: 187 100% 50%;
-    --radius: 0.5rem;
+    --radius: 0.75rem; /* 12px */
   }
 
   .dark {
     --background: 206 100% 8%;
     --foreground: 210 40% 98%;
-    --card: 206 50% 12%;
+    --card: 206 100% 12%;
     --card-foreground: 210 40% 98%;
     --popover: 206 100% 8%;
     --popover-foreground: 210 40% 98%;
@@ -38,13 +38,13 @@
     --secondary: 217 33% 17%;
     --secondary-foreground: 210 40% 98%;
     --muted: 217 33% 17%;
-    --muted-foreground: 215 20% 65%;
+    --muted-foreground: 208 8% 65%;
     --accent: 217 33% 20%;
     --accent-foreground: 210 40% 98%;
     --destructive: 0 63% 31%;
     --destructive-foreground: 210 40% 98%;
-    --border: 217 33% 25%;
-    --input: 217 33% 15%;
+    --border: 206 50% 20%;
+    --input: 206 50% 15%;
     --ring: 187 100% 50%;
   }
 }
@@ -55,6 +55,6 @@
   }
   body {
     @apply bg-background text-foreground min-h-screen;
-    background: radial-gradient(ellipse at bottom, hsl(var(--background)) 0%, hsl(206, 100%, 4%) 100%);
+    background: hsl(var(--background));
   }
 }

@@ -22,8 +22,8 @@ import { useState } from 'react';
 import { Loader2 } from 'lucide-react';
 
 const formSchema = z.object({
-  email: z.string().email({ message: 'Invalid email address.' }),
-  password: z.string().min(6, { message: 'Password must be at least 6 characters.' }),
+  email: z.string().email({ message: 'E-mail inválido.' }),
+  password: z.string().min(1, { message: 'Senha é obrigatória.' }),
 });
 
 export default function LoginPage() {
@@ -48,8 +48,8 @@ export default function LoginPage() {
     } catch (error: any) {
       console.error('Login failed:', error);
       toast({
-        title: 'Login Failed',
-        description: error.message || 'An unexpected error occurred. Please try again.',
+        title: 'Falha no Login',
+        description: 'Credenciais inválidas. Por favor, tente novamente.',
         variant: 'destructive',
       });
     } finally {
@@ -58,24 +58,24 @@ export default function LoginPage() {
   }
 
   return (
-    <Card className="w-full border-0 bg-card/60 shadow-xl shadow-black/20 backdrop-blur-lg">
-      <CardHeader className="p-8 pb-4">
-        <CardTitle className="text-2xl">Login</CardTitle>
-        <CardDescription>
-          Enter your email below to login to your account.
+    <Card className="w-full border-border bg-card shadow-lg">
+      <CardHeader className="p-[30px] pb-4">
+        <CardTitle className="text-2xl font-bold text-white">Bem-vindo de volta!</CardTitle>
+        <CardDescription className="text-muted-foreground">
+          Faça login para acessar a VEO3 ACADEMY.
         </CardDescription>
       </CardHeader>
-      <CardContent className="p-8 pt-0">
+      <CardContent className="p-[30px] pt-0">
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
             <FormField
               control={form.control}
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Email</FormLabel>
+                  <FormLabel className="font-semibold text-white">E-mail</FormLabel>
                   <FormControl>
-                    <Input placeholder="m@example.com" {...field} />
+                    <Input placeholder="seu@email.com" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -86,12 +86,7 @@ export default function LoginPage() {
               name="password"
               render={({ field }) => (
                 <FormItem>
-                  <div className="flex items-center">
-                    <FormLabel>Password</FormLabel>
-                    <Link href="/reset-password" prefetch={false} className="ml-auto inline-block text-sm underline">
-                      Forgot your password?
-                    </Link>
-                  </div>
+                  <FormLabel className="font-semibold text-white">Senha</FormLabel>
                   <FormControl>
                     <Input type="password" placeholder="••••••••" {...field} />
                   </FormControl>
@@ -99,17 +94,24 @@ export default function LoginPage() {
                 </FormItem>
               )}
             />
-            <Button type="submit" className="w-full" disabled={isLoading}>
+            <Button type="submit" className="w-full text-base font-bold" disabled={isLoading}>
               {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-              Login
+              Entrar
             </Button>
           </form>
         </Form>
-        <div className="mt-4 text-center text-sm">
-          Don&apos;t have an account?{' '}
-          <Link href="/signup" prefetch={false} className="underline">
-            Sign up
-          </Link>
+        <div className="mt-6 space-y-2 text-center text-sm text-muted-foreground">
+          <p>
+            <Link href="/reset-password" prefetch={false} className="text-primary hover:underline">
+              Esqueceu sua senha?
+            </Link>
+          </p>
+          <p>
+            Não tem uma conta?{' '}
+            <Link href="/signup" prefetch={false} className="text-primary hover:underline">
+              Crie uma agora
+            </Link>
+          </p>
         </div>
       </CardContent>
     </Card>
