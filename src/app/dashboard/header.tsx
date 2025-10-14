@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Film, LogOut, User as UserIcon } from 'lucide-react';
+import { LogOut } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -34,7 +34,7 @@ export default function DashboardHeader() {
   return (
     <header className="sticky top-0 z-10 flex h-16 items-center gap-4 border-b bg-background/80 px-4 backdrop-blur-md md:px-6">
       <Link href="/dashboard" className="flex items-center gap-2 font-semibold">
-        <Film className="h-6 w-6 text-primary" />
+        <img src="/imgs/logo_braz.png" alt="BrazHits Logo" className="h-8 w-auto" />
         <span className="font-headline text-lg font-bold text-white">Packs BrazHits</span>
       </Link>
       <div className="ml-auto flex items-center gap-4">
