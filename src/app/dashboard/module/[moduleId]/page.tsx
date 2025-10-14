@@ -33,10 +33,10 @@ export default function ModulePage({ params }: { params: { moduleId: string } })
           {module.id === 'music-pack-mp3' && (
              <div className="aspect-video w-full">
               <iframe 
-                src="https://gamma.app/embed/p124r032u9r6090" 
-                style={{width: '100%', height: '100%', border: 'none'}}
-                allow="fullscreen" 
-                title="ACESSE SEU PACK DE MÚSICAS! 👇🏻">
+                src="https://drive.google.com/file/d/11PPXWi_K5ZRK8ejXc3peldgZryG0xdzY/preview"
+                className="h-full w-full"
+                allow="autoplay"
+                title={`PDF for ${module.title}`}>
               </iframe>
             </div>
           )}
