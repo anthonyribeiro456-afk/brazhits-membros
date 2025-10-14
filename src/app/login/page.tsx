@@ -65,7 +65,7 @@ export default function LoginPage() {
           <img
             src="/imgs/logo_braz.png"
             alt="Logo"
-            className="w-44 h-auto mb-2"
+            className="w-44 h-auto -mb-5 -mt-5"
           />
 
 
@@ -73,7 +73,7 @@ export default function LoginPage() {
         <CardHeader className="p-[30px] pb-4">
           <CardTitle className="text-2xl font-bold text-white">Bem-vindo de volta!</CardTitle>
           <CardDescription className="text-muted-foreground">
-            Faça login para acessar a VEO3 ACADEMY.
+            Faça login para acessar seus PACKS!
           </CardDescription>
         </CardHeader>
 

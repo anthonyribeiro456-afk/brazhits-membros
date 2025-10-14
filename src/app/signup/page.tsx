@@ -21,10 +21,16 @@ import { useToast } from '@/hooks/use-toast';
 import { useState } from 'react';
 import { Loader2 } from 'lucide-react';
 
-const formSchema = z.object({
-  email: z.string().email({ message: 'Invalid email address.' }),
-  password: z.string().min(6, { message: 'Password must be at least 6 characters.' }),
-});
+const formSchema = z
+  .object({
+    email: z.string().email({ message: 'Endereço de e-mail inválido.' }),
+    password: z.string().min(6, { message: 'A senha deve ter pelo menos 6 caracteres.' }),
+    confirmPassword: z.string(),
+  })
+  .refine((data) => data.password === data.confirmPassword, {
+    message: 'As senhas não correspondem.',
+    path: ['confirmPassword'],
+  });
 
 export default function SignUpPage() {
   const router = useRouter();
@@ -36,6 +42,7 @@ export default function SignUpPage() {
     defaultValues: {
       email: '',
       password: '',
+      confirmPassword: '',
     },
   });
 
@@ -45,15 +52,15 @@ export default function SignUpPage() {
       const auth = getAuth();
       await createUserWithEmailAndPassword(auth, values.email, values.password);
       toast({
-        title: 'Account Created',
-        description: "You've been successfully signed up! Redirecting to dashboard...",
+        title: 'Conta Criada!',
+        description: 'Sua conta foi criada com sucesso! Redirecionando...',
       });
       router.push('/dashboard');
     } catch (error: any) {
-      console.error('Sign up failed:', error);
+      console.error('Falha no cadastro:', error);
       toast({
-        title: 'Sign Up Failed',
-        description: error.message || 'An unexpected error occurred. Please try again.',
+        title: 'Falha no Cadastro',
+        description: error.message || 'Ocorreu um erro inesperado. Por favor, tente novamente.',
         variant: 'destructive',
       });
     } finally {
@@ -64,9 +71,9 @@ export default function SignUpPage() {
   return (
     <Card className="w-full border-0 bg-card/60 shadow-xl shadow-black/20 backdrop-blur-lg">
       <CardHeader className="p-8 pb-4">
-        <CardTitle className="text-2xl">Sign Up</CardTitle>
+        <CardTitle className="text-2xl">Criar Conta</CardTitle>
         <CardDescription>
-          Enter your information to create an account.
+          Insira suas informações para criar uma conta.
         </CardDescription>
       </CardHeader>
       <CardContent className="p-8 pt-0">
@@ -77,9 +84,9 @@ export default function SignUpPage() {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Email</FormLabel>
+                  <FormLabel>E-mail</FormLabel>
                   <FormControl>
-                    <Input placeholder="m@example.com" {...field} />
+                    <Input placeholder="seu@email.com" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -90,7 +97,20 @@ export default function SignUpPage() {
               name="password"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Password</FormLabel>
+                  <FormLabel>Senha</FormLabel>
+                  <FormControl>
+                    <Input type="password" placeholder="••••••••" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="confirmPassword"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Confirmar Senha</FormLabel>
                   <FormControl>
                     <Input type="password" placeholder="••••••••" {...field} />
                   </FormControl>
@@ -100,14 +120,14 @@ export default function SignUpPage() {
             />
             <Button type="submit" className="w-full" disabled={isLoading}>
               {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-              Create an account
+              Criar conta
             </Button>
           </form>
         </Form>
         <div className="mt-4 text-center text-sm">
-          Already have an account?{' '}
+          Já tem uma conta?{' '}
           <Link href="/login" prefetch={false} className="underline">
-            Login
+            Entrar
           </Link>
         </div>
       </CardContent>
