@@ -14,8 +14,6 @@ export default function ModulePage({ params }: { params: { moduleId: string } })
     notFound();
   }
 
-  const isNewModule = module.id === 'music-pack-mp3' || module.id === 'video-pack-mp4';
-
   return (
     <div className="container mx-auto max-w-4xl py-8">
       <div className="mb-6">
@@ -32,7 +30,17 @@ export default function ModulePage({ params }: { params: { moduleId: string } })
           <CardTitle className="font-headline text-3xl">{module.title}</CardTitle>
         </CardHeader>
         <CardContent>
-          {isNewModule ? (
+          {module.id === 'music-pack-mp3' && (
+             <div className="aspect-video w-full">
+              <iframe 
+                src="https://gamma.app/embed/p124r032u9r6090" 
+                style={{width: '100%', height: '100%', border: 'none'}}
+                allow="fullscreen" 
+                title="ACESSE SEU PACK DE MÚSICAS! 👇🏻">
+              </iframe>
+            </div>
+          )}
+           {module.id === 'video-pack-mp4' && (
             <div className="aspect-video w-full">
               <iframe
                 src="https://drive.google.com/file/d/1TsFzlOM6CT0s22pXplInxw4ZRB-efNMP/preview"
@@ -41,7 +49,8 @@ export default function ModulePage({ params }: { params: { moduleId: string } })
                 title={`PDF for ${module.title}`}
               ></iframe>
             </div>
-          ) : (
+          )}
+           {!['music-pack-mp3', 'video-pack-mp4'].includes(module.id) && (
             <p>Conteúdo do módulo em construção.</p>
           )}
         </CardContent>
