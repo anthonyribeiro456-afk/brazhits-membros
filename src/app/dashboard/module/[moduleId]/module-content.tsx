@@ -53,7 +53,7 @@ export default function ModuleContent({ moduleId }: { moduleId: string }) {
            {module.id === 'video-pack-mp4' && (
             <div className="aspect-video w-full">
               <iframe
-                src="https://drive.google.com/file/d/1TsFzlOM6CT0s22pXplInxw4ZRB-efNMP/preview"
+                src="https://drive.google.com/file/d/1y_WBaWUFbpvtGKDjEgU1vcu0xoWZ3Fe7/preview"
                 className="h-full w-full"
                 allow="autoplay"
                 title={`PDF for ${module.title}`}
