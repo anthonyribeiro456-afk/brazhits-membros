@@ -43,7 +43,7 @@ export default function ModuleContent({ moduleId }: { moduleId: string }) {
           {module.id === 'music-pack-mp3' && (
              <div className="aspect-video w-full">
               <iframe
-                src="https://drive.google.com/file/d/11PPXWi_K5ZRK8ejXc3peldgZryG0xdzY/preview"
+                src="https://drive.google.com/file/d/1izEkRR84Sz-AEq8ex3gX_E83oveVXshR/preview"
                 className="h-full w-full"
                 allow="autoplay"
                 title={`PDF for ${module.title}`}>
