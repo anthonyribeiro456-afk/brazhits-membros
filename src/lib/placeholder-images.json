@@ -1,6 +1,18 @@
 {
   "placeholderImages": [
     {
+      "id": "pack-musicas-mp3",
+      "description": "PACK +1000 Músicas MP3 (Atualizado Out/25)",
+      "imageUrl": "https://i.imgur.com/JAfzOhL.png",
+      "imageHint": "music cover"
+    },
+    {
+      "id": "pack-clipes-mp4",
+      "description": "PACK +200 Clipes MP4 (Atualizado Out/25)",
+      "imageUrl": "https://i.imgur.com/io8F4tl.png",
+      "imageHint": "video cover"
+    },
+    {
       "id": "video-editing",
       "description": "A person editing video on a computer.",
       "imageUrl": "https://picsum.photos/seed/1/600/400",

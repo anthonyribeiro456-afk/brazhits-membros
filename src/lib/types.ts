@@ -4,6 +4,7 @@ export type Module = {
   description: string;
   category: string;
   imageId: string;
+  isNew?: boolean;
 };
 
 export type UserProgress = {
