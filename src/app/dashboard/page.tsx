@@ -34,7 +34,7 @@ export default function DashboardPage() {
 
   return (
     <div className="container mx-auto max-w-7xl">
-      <h1 className="mb-8 text-3xl font-bold tracking-tight text-white sm:text-4xl font-headline">Your Modules</h1>
+      <h1 className="mb-8 text-3xl font-bold tracking-tight text-white sm:text-4xl font-headline">Seus Packs</h1>
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {(loading ? Array.from({ length: 5 }) : modules).map((module, i) =>
           loading || !module ? (
