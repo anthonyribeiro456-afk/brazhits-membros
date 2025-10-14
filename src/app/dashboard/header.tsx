@@ -35,7 +35,7 @@ export default function DashboardHeader() {
     <header className="sticky top-0 z-10 flex h-16 items-center gap-4 border-b bg-background/80 px-4 backdrop-blur-md md:px-6">
       <Link href="/dashboard" className="flex items-center gap-2 font-semibold">
         <Film className="h-6 w-6 text-primary" />
-        <span className="font-headline text-lg font-bold text-white">MotionSound Pro</span>
+        <span className="font-headline text-lg font-bold text-white">Packs BrazHits</span>
       </Link>
       <div className="ml-auto flex items-center gap-4">
         <DropdownMenu>
