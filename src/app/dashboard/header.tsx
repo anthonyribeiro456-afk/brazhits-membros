@@ -34,7 +34,7 @@ export default function DashboardHeader() {
   return (
     <header className="sticky top-0 z-10 flex h-16 items-center gap-4 border-b bg-background/80 px-4 backdrop-blur-md md:px-6">
       <Link href="/dashboard" className="flex items-center gap-2 font-semibold">
-        <img src="/imgs/logo2_braz.png" alt="BrazHits Logo" className="h-10 w-auto" />
+        <img src="/imgs/logo2_braz.png" alt="BrazHits Logo" className="h-20 w-auto" />
         <span className="font-headline text-lg font-bold text-white">Packs BrazHits</span>
       </Link>
       <div className="ml-auto flex items-center gap-4">
