@@ -21,7 +21,7 @@ import { useState } from 'react';
 import { Loader2 } from 'lucide-react';
 
 const formSchema = z.object({
-  email: z.string().email({ message: 'Invalid email address.' }),
+  email: z.string().email({ message: 'E-mail inválido.' }),
 });
 
 export default function ResetPasswordPage() {
@@ -42,15 +42,15 @@ export default function ResetPasswordPage() {
       const auth = getAuth();
       await sendPasswordResetEmail(auth, values.email);
       toast({
-        title: 'Password Reset Email Sent',
-        description: 'Please check your inbox for instructions to reset your password.',
+        title: 'E-mail de Redefinição Enviado',
+        description: 'Por favor, verifique sua caixa de entrada para obter instruções.',
       });
       setIsSent(true);
     } catch (error: any) {
-      console.error('Password reset failed:', error);
+      console.error('Falha ao redefinir senha:', error);
       toast({
-        title: 'Error',
-        description: error.message || 'Failed to send password reset email. Please try again.',
+        title: 'Erro',
+        description: error.message || 'Falha ao enviar e-mail de redefinição. Tente novamente.',
         variant: 'destructive',
       });
     } finally {
@@ -61,17 +61,17 @@ export default function ResetPasswordPage() {
   return (
     <Card className="w-full border-0 bg-card/60 shadow-xl shadow-black/20 backdrop-blur-lg">
       <CardHeader className="p-8 pb-4">
-        <CardTitle className="text-2xl">Reset Password</CardTitle>
+        <CardTitle className="text-2xl">Redefinir Senha</CardTitle>
         <CardDescription>
-          Enter your email to receive a password reset link.
+          Digite seu e-mail para receber um link de redefinição de senha.
         </CardDescription>
       </CardHeader>
       <CardContent className="p-8 pt-0">
         {isSent ? (
           <div className="text-center text-sm">
-            <p>An email has been sent to your address with instructions.</p>
+            <p>Um e-mail foi enviado para seu endereço com as instruções.</p>
             <Link href="/login" prefetch={false} className="mt-4 inline-block font-bold text-primary underline">
-              Return to Login
+              Voltar para o Login
             </Link>
           </div>
         ) : (
@@ -83,9 +83,9 @@ export default function ResetPasswordPage() {
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Email</FormLabel>
+                      <FormLabel>E-mail</FormLabel>
                       <FormControl>
-                        <Input placeholder="m@example.com" {...field} />
+                        <Input placeholder="seu@email.com" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -93,14 +93,14 @@ export default function ResetPasswordPage() {
                 />
                 <Button type="submit" className="w-full" disabled={isLoading}>
                   {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                  Send Reset Link
+                  Enviar Link de Redefinição
                 </Button>
               </form>
             </Form>
             <div className="mt-4 text-center text-sm">
-              Remember your password?{' '}
+              Lembrou sua senha?{' '}
               <Link href="/login" prefetch={false} className="underline">
-                Login
+                Entrar
               </Link>
             </div>
           </>
