@@ -62,3 +62,5 @@ export async function POST(req: NextRequest) {
     return new NextResponse(JSON.stringify({ error: 'Ocorreu um erro interno.' }), { status: 500 });
   }
 }
+
+
