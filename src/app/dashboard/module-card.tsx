@@ -40,7 +40,7 @@ export default function ModuleCard({ module, image }: ModuleCardProps) {
       <CardFooter className="p-6 pt-0">
         <Button asChild className="w-full">
           <Link href={`/dashboard/module/${module.id}`}>
-            Abrir Módulo
+            Abrir Pack
             <ArrowRight className="ml-2 h-4 w-4" />
           </Link>
         </Button>
