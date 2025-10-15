@@ -7,7 +7,7 @@ export default function AuthLayout({ children }: { children: ReactNode }) {
       <div className="flex max-w-sm flex-col items-center justify-center">
         <div className="mb-8 flex items-center gap-3 text-2xl font-bold text-white">
           <Rocket className="h-7 w-7" />
-          <h1 className="text-2xl font-bold">VEO3 ACADEMY</h1>
+          <h1 className="text-2xl font-bold">BRAZHITS</h1>
         </div>
         {children}
       </div>
