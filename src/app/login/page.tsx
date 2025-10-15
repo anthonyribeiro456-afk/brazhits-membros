@@ -1,3 +1,4 @@
+
 'use client';
 
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -139,10 +140,10 @@ export default function LoginPage() {
               </Link>
             </p>
             <p>
-              Não tem uma conta?{' '}
-              <Link href="/signup" prefetch={false} className="text-primary hover:underline">
-                Crie uma agora
-              </Link>
+              Ainda não adquiriu seu Pack?{' '}
+              <a href="https://brazhits.com.br/packs" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+                Clique aqui e garanta o seu agora!
+              </a>
             </p>
           </div>
         </CardContent>
