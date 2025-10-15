@@ -11,7 +11,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: 'BrazHits Packs',
+  title: 'BrazHits',
   description: 'Seu hub exclusivo para packs de clipes e músicas.',
 };
 
