@@ -12,7 +12,7 @@ export const modules: Module[] = [
   {
     id: 'video-pack-mp4',
     title: 'PACK +200 Clipes MP4 (Atualizado Out/25)',
-    description: 'Acesso a um pacote com mais de 200 clipes em MP4.',
+    description: 'Nos envie seu feedback pelo Instagram que iremos compartilhar! @brazhits_ 🩵',
     category: 'Vídeo',
     imageId: 'pack-clipes-mp4',
     isNew: true,
