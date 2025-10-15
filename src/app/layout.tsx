@@ -11,8 +11,8 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: 'MotionSound Pro',
-  description: 'Your exclusive hub for video clips and music packs.',
+  title: 'BrazHits Packs',
+  description: 'Seu hub exclusivo para packs de clipes e músicas.',
 };
 
 export default function RootLayout({
